@@ -7,3 +7,48 @@
 4. Using Chainlink VRF & Chainlink Automation
     - Chainlink VRF --> Randomness
     - Chainlink Automation --> Time based trigger
+
+
+## Layout of Contract
+
+```solidity
+
+    // SPDX-License-Identifier: MIT
+
+    // pragma solidity <version>
+
+    // imports
+    // errors
+    // interfaces, libraries, contracts
+    // Type declarations
+    // State variables
+    // Events
+    // Modifiers
+    // Functions
+
+    // Layout of Functions:
+
+```
+
+## Layout of Functions
+
+```solidity
+    // constructor
+    // receive function (if exists)
+    // fallback function (if exists)
+    // external
+    // public
+    // internal
+    // private
+    // view & pure functions
+```
+
+## Important Acknowledgement
+
+```solidity
+    function enjoy() payable external returns (HappyBlockchainDeveloper) {
+        if (developer.notCurious) {
+            revert Web3__GetThisDeveloperOutOfHere();
+        }
+    }
+```
