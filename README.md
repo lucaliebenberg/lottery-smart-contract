@@ -46,7 +46,7 @@
 ```solidity
     function enjoy() payable external returns (HappyBlockchainDeveloper) {
         if (developer.notCurious) {
-            revert Web3__GetThisDeveloperOutOfHere();
+            revert Web3__GetThisDeveloperOutOfHere(); // LOL
         }
     }
 ```
