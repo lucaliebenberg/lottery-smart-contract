@@ -41,7 +41,7 @@
     // view & pure functions
 ```
 
-## Important Acknowledgement.
+## Important Acknowledgement
 
 ```solidity
     function enjoy() payable external returns (HappyBlockchainDeveloper) {
@@ -50,3 +50,6 @@
         }
     }
 ```
+
+** ['view here'](https://media.tenor.com/_Y3doxogbV4AAAAM/gotcha-funny.gif) **
+
