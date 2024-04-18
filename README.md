@@ -44,9 +44,9 @@
 ## Important Acknowledgement
 
 ```solidity
-    function enjoy() payable external returns (HappyBlockchainDeveloper) {
+    function payMe10000ETHPlease() payable external returns (HappyBlockchainDeveloper) {
         if (developer.notCurious) {
-            revert Web3__GetThisDeveloperOutOfHere(); // LOL
+            revert Web3__GetThisDeveloperOutOfHere(); // LOL, see ya 
         }
     }
 ```
