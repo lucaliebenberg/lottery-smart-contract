@@ -26,8 +26,6 @@
     // Modifiers
     // Functions
 
-    // Layout of Functions:
-
 ```
 
 ## Layout of Functions
@@ -43,7 +41,7 @@
     // view & pure functions
 ```
 
-## Important Acknowledgement
+## Important Acknowledgement.
 
 ```solidity
     function enjoy() payable external returns (HappyBlockchainDeveloper) {
