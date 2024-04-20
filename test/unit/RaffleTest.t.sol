@@ -6,6 +6,7 @@ import {DeployRaffle} from "../../script/DeployRaffle.s.sol";
 import {Raffle} from "../../src/Raffle.sol";
 import {Test, console} from "forge-std/Test.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
+import {Vm} from "forge-std/Vm.sol";
 
 contract RaffleTest is Test {
     /* Events */
@@ -137,5 +138,61 @@ contract RaffleTest is Test {
 
         // Assert
         assert(upkeepNeeded);
+    }
+
+
+    /* performUpkeep */
+    function testPerformUpkeepCanOnlyRunIfCheckUpkeepIsTrue() public {
+        // Arrange
+        vm.prank(PLAYER);
+        raffle.enterRaffle{value: entranceFee}();
+        vm.warp(block.timestamp + interval + 1);
+        vm.roll(block.number + 1);
+
+        // Act / Assert
+        raffle.performUpkeep("");
+    }
+
+    function testPerformUpkeepRevertsIfCheckUpkeepIsFalse() public {
+        // Arrange
+        uint256 currentBalance = 0;
+        uint256 numPlayers = 0;
+        uint256 raffleState = 0;
+        
+        // Act / Assert
+        vm.expectRevert(abi.encodeWithSelector(
+            Raffle.Raffle_UpKeepNotNeeded.selector,
+            currentBalance,
+            numPlayers,
+            raffleState
+        ));
+        raffle.performUpkeep("");
+
+    }
+
+    function testPerformUpkeepUpdatesRaffleStateAndEmitsRequestId() 
+    public 
+    raffleEnteredAndTimePassed 
+    {     
+        // Act / Assert
+        vm.recordLogs();
+        raffle.performUpkeep(""); // emit requestId
+        Vm.Log[] memory entries = vm.getRecordedLogs();
+        bytes32 requestId = entries[1].topics[1]; // topic[0] refers to the whole event, whereas topic[1] refers to the requestId in params
+    
+        Raffle.RaffleState rState = raffle.getRaffleState();
+        
+        assert(uint256(requestId) > 0);
+        assert(uint256(rState) == 1);
+    }
+
+
+    /* Modifiers */
+        modifier raffleEnteredAndTimePassed() {
+        vm.prank(PLAYER);
+        raffle.enterRaffle{value: entranceFee}();
+        vm.warp(block.timestamp + interval + 1);
+        vm.roll(block.number + 1);
+        _;
     }
 }
