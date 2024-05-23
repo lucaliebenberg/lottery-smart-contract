@@ -46,7 +46,6 @@
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
-    - [Optional Gitpod](#optional-gitpod)
 - [Updates](#updates)
 - [Usage](#usage)
   - [Start a local node](#start-a-local-node)
@@ -77,10 +76,6 @@ git clone https://github.com/lucaliebenberg/lottery-smart-contract
 cd lottery-smart-contract
 forge build
 ```
-
-### Optional Gitpod
-
-If you can't or don't want to run and install locally, you can work with this repo in Gitpod. If you do this, you can skip the `clone this repo` part.
 
 # Usage
 
