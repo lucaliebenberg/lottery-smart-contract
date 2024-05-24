@@ -42,7 +42,6 @@
     // view & pure functions
 ```
 
-- [About](#about)
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
